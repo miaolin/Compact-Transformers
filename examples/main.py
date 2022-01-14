@@ -40,8 +40,11 @@ def init_parser():
     parser = argparse.ArgumentParser(description='CIFAR quick training script')
 
     # Data args
-    parser.add_argument('data', metavar='DIR',
-                        help='path to dataset')
+    # parser.add_argument('data', metavar='DIR',
+    #                     help='path to dataset')
+
+    parser.add_argument('--data',
+                        help='path to dataset', default="/Users/kakalin/Study/codes/DL_with_pytorch/data/cifar-10-batches-py")
 
     parser.add_argument('--dataset',
                         type=str.lower,
@@ -112,6 +115,7 @@ def main():
 
     parser = init_parser()
     args = parser.parse_args()
+
     img_size = DATASETS[args.dataset]['img_size']
     num_classes = DATASETS[args.dataset]['num_classes']
     img_mean, img_std = DATASETS[args.dataset]['mean'], DATASETS[args.dataset]['std']
